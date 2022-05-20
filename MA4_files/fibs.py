@@ -1,5 +1,5 @@
 from integer import Integer
-
+from numba import njit
 
 
 f = Integer(7)
@@ -13,7 +13,7 @@ def fib_pure_py(n):
 
 print(fib_pure_py(n))
 
-#@njit
+@njit
 def fib_numba_py(n):
     if n <= 1:
         return n

@@ -6,10 +6,12 @@ class Integer{
 		Integer(int);
 		int get();
 		void set(int);
+		int fib();
 	private:
 		int val;
+		int fibhelp(int);
 	};
- 
+
 Integer::Integer(int n){
 	val = n;
 	}
@@ -17,10 +19,26 @@ Integer::Integer(int n){
 int Integer::get(){
 	return val;
 	}
- 
+
 void Integer::set(int n){
 	val = n;
 	}
+
+int Integer::fib(){
+	return fibhelp(val);
+	}
+
+
+int Integer::fibhelp(int n){
+	if((n==1)||(n==0)) {
+   		return(n);
+	}else {
+		return(fibhelp(n-1)+fibhelp(n-2));
+	}
+	}
+
+
+
 
 
 extern "C"{
@@ -33,4 +51,5 @@ extern "C"{
 			integer = nullptr;
 			}
 		}
+	int Integer_fib(Integer* integer) {return integer->fib();}
 	}

@@ -17,7 +17,7 @@ def fib_numba_py(n):
     else:
         return(fib_numba_py(n-1) + fib_numba_py(n-2))
 
-n = [20, 25, 28]
+n = range(31)
 xp = []
 xn = []
 xf = [] 
@@ -47,7 +47,7 @@ if __name__ == '__main__':
 
 #plot
 fig, ax = plt.subplots()
-plt.scatter(xp, n, c='Green')
+plt.scatter(n, xp, c='Green')
 plt.scatter(n, xn, c='Blue')
 plt.scatter(n, xf, c='Red')
 plt.savefig('FibTimes')

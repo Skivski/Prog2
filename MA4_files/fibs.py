@@ -24,10 +24,7 @@ xf = []
 
 # data
 def main():
-    print()
-
     for i in n:
-
         start = pc()
         fib_pure_py(i)
         end = pc()
@@ -44,13 +41,13 @@ def main():
         end = pc()
         xf.append(end-start)
 
-    print()
+    print('.png saved')
 if __name__ == '__main__':
         main()
 
 #plot
 fig, ax = plt.subplots()
-plt.scatter(xp, n, 1, c='Blue')
-plt.scatter(xn, n)
-plt.scatter(xf, n)
+plt.scatter(xp, n, c='Green')
+plt.scatter(n, xn, c='Blue')
+plt.scatter(n, xf, c='Red')
 plt.savefig('FibTimes')

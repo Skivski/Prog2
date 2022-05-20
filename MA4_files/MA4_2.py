@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-
+from numba import njit
 from integer import Integer
 
 def main():

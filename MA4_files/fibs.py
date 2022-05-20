@@ -1,7 +1,8 @@
 from integer import Integer
 from numba import njit
 from time import perf_counter as pc
-import multiprocessing as mp
+import matplotlib.pyplot as plt
+import numpy as np
 
 def fib_pure_py(n):
     if n <= 1:
@@ -16,31 +17,40 @@ def fib_numba_py(n):
     else:
         return(fib_numba_py(n-1) + fib_numba_py(n-2))
 
-n = [20, 25, 27]
+n = [20, 25, 28]
+xp = []
+xn = []
+xf = [] 
 
+# data
 def main():
+    print()
 
     for i in n:
-        print()
+
         start = pc()
-        o = fib_pure_py(i)
+        fib_pure_py(i)
         end = pc()
-        print(f'*** Fibbonaci {i} = {o} ***')
-        print(f'Time for pure python  {end-start}')
-        
+        xp.append(end-start)
 
         start = pc()
         p = fib_numba_py(i)
         end = pc()
-        print(f'Time for numba python: {end-start}')
-        
-        
+        xn.append(end-start)
+
         f = Integer(i)
         start = pc()
         f.fib()
         end = pc()
-        print(f'Time for C++: {end-start}')
-    print()
+        xf.append(end-start)
 
+    print()
 if __name__ == '__main__':
-        main() 
+        main()
+
+#plot
+fig, ax = plt.subplots()
+plt.scatter(xp, n, 1, c='Blue')
+plt.scatter(xn, n)
+plt.scatter(xf, n)
+plt.savefig('FibTimes')

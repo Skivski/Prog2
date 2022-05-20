@@ -1,0 +1,22 @@
+    for i in n:
+        print()
+        start = pc()
+        o = fib_pure_py(i)
+        end = pc()
+        print(f'*** Fibbonaci {i} = {o} ***')
+        print(f'Time for pure python  {end-start}')
+
+
+        start = pc()
+        p = fib_numba_py(i)
+        end = pc()
+        print(f'Time for numba python: {end-start}')
+
+
+        f = Integer(i)
+        start = pc()
+        f.fib()
+        end = pc()
+        print(f'Time for C++: {end-start}')
+    print()
+

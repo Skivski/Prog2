@@ -63,7 +63,7 @@ def main():
     start = pc()
     fib_numba_py(30)
     end = pc()
-    print(f'Time for numba 47,{end-start}')
+    print(f'Time for numba 47, {end-start}')
     print()
 
     f = Integer(30)

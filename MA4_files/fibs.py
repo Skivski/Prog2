@@ -17,7 +17,7 @@ def fib_numba_py(n):
     else:
         return(fib_numba_py(n-1) + fib_numba_py(n-2))
 
-n = range(30, 34)
+n = range(30, 40)
 xp = []
 xn = []
 xf = []
@@ -61,12 +61,12 @@ def main():
     print()
 
     start = pc()
-    fib_numba_py(30)
+    fib_numba_py(47)
     end = pc()
     print(f'Time for numba 47, {end-start}')
     print()
 
-    f = Integer(30)
+    f = Integer(47)
     start = pc()
     f.fib()
     end = pc()
